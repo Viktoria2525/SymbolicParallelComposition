@@ -2,12 +2,12 @@ open HolKernel Parse boolLib bossLib;
 open sumTheory;
 open pred_setTheory;
 open listTheory;
-open parallelcompositionemptydeductionTheory;
+open parallelcompositiondeductionTheory;
 open pairTheory wordsTheory set_sepTheory;
 open quantHeuristicsTheory;
 
 
-val _ = new_theory "interleavingempty";
+val _ = new_theory "interleavingdeduction";
 
 val TranRelNil = new_axiom ("TranRelNil",
                             ``∀(MTrn:('event, 'pred, 'state , 'symb ) mtrel) v p s. MTrn (v,p,s) [] (v,p,s)``);

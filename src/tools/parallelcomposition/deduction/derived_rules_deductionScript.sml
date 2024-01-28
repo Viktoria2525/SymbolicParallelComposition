@@ -4,10 +4,10 @@ open pred_setTheory;
 open sigma_algebraTheory;
 open listTheory;
 open tautLib;
-open interleavingemptyTheory;
-open parallelcompositionemptydeductionTheory;
+open interleavingdeductionTheory;
+open parallelcompositiondeductionTheory;
 
-val _ = new_theory "derived_rules_emptydeduction";
+val _ = new_theory "derived_rules_deduction";
 
 val traces_def =
 Define`
@@ -21,8 +21,8 @@ Define`
 }
 `;
 
-val binterleave_trace_comp_to_decomp_emptydeduction_thm = store_thm(
-  "binterleave_trace_comp_to_decomp_emptydeduction",
+val binterleave_trace_comp_to_decomp_deduction_thm = store_thm(
+  "binterleave_trace_comp_to_decomp_deduction",
   ``∀t Sym P S1 S2 Sym' P' S1' S2' (MTrn1:('event1 + 'eventS, 'pred1, 'state1, 'symb) mtrel) (MTrn2:('event2 + 'eventS, 'pred2, 'state2, 'symb) mtrel) (ded1:('pred1) tded) (ded2:('pred2) tded).
        (((MTrn1,ded1) || (MTrn2,ded2)) (Sym,P,S1,S2) t (Sym',P',S1',S2'))
      ⇒
@@ -92,8 +92,8 @@ val binterleave_trace_comp_to_decomp_emptydeduction_thm = store_thm(
 
 
 
-val binterleave_trace_decomp_to_comp_emptydeduction_thm = store_thm(
-  "binterleave_trace_decomp_to_comp_emptydeduction",
+val binterleave_trace_decomp_to_comp_deduction_thm = store_thm(
+  "binterleave_trace_decomp_to_comp_deduction",
   ``∀t Sym P S1 S2 Sym' P' S1' S2' (MTrn1:('event1 + 'eventS, 'pred1, 'state1, 'symb) mtrel) (MTrn2:('event2 + 'eventS, 'pred2, 'state2, 'symb) mtrel) (Ded1:('pred1) tded) (Ded2:('pred2) tded). 
        (∃t1 t2. (MTrn1 (Sym,(IMAGE OUTL P),S1) t1 (Sym',(IMAGE OUTL P'),S1')) ∧ (MTrn2 (Sym,(IMAGE OUTR P),S2) t2 (Sym',(IMAGE OUTR P'),S2')) ∧ (binterl t1 t2 t))
      ⇒
@@ -179,8 +179,8 @@ val binterleave_trace_decomp_to_comp_emptydeduction_thm = store_thm(
   );
 
 
-val binterleave_trace_emptydeduction_thm = store_thm(
-  "binterleave_trace_emptydeduction",
+val binterleave_trace_deduction_thm = store_thm(
+  "binterleave_trace_deduction",
   `` ∀t Sym P S1 S2 Sym' P' S1' S2' (MTrn1:('event1 + 'eventS, 'pred1, 'state1, 'symb) mtrel) (MTrn2:('event2 + 'eventS, 'pred2, 'state2, 'symb) mtrel) (Ded1:('pred1) tded) (Ded2:('pred2) tded). 
        (((MTrn1,Ded1) || (MTrn2,Ded2)) (Sym,P,S1,S2) t (Sym',P',S1',S2'))
        ⇔
@@ -188,30 +188,30 @@ val binterleave_trace_emptydeduction_thm = store_thm(
          ``,
   rpt gen_tac >>
   EQ_TAC >>
-  rewrite_tac[binterleave_trace_comp_to_decomp_emptydeduction_thm] >>
-  rewrite_tac[binterleave_trace_decomp_to_comp_emptydeduction_thm]
+  rewrite_tac[binterleave_trace_comp_to_decomp_deduction_thm] >>
+  rewrite_tac[binterleave_trace_decomp_to_comp_deduction_thm]
   );
 
-val binterleave_composition_emptydeduction_thm = store_thm(
-  "binterleave_composition_emptydeduction",
+val binterleave_composition_deduction_thm = store_thm(
+  "binterleave_composition_deduction",
   ``∀Sym P S1 S2 Sym' P' S1' S2' (MTrn1:('event1 + 'eventS, 'pred1, 'state1, 'symb) mtrel) (MTrn2:('event2 + 'eventS, 'pred2, 'state2, 'symb) mtrel) (Ded1:('pred1) tded) (Ded2:('pred2) tded).
          (comptraces (MTrn1,Ded1) (MTrn2,Ded2) (Sym,P,S1,S2) (Sym',P',S1',S2'))                           
      = (binterleave_ts (traces (MTrn1,Ded1) (Sym,(IMAGE OUTL P),S1) (Sym',(IMAGE OUTL P'),S1')) (traces (MTrn2,Ded2) (Sym,(IMAGE OUTR P),S2) (Sym',(IMAGE OUTR P'),S2')))
        ``,
      rewrite_tac[binterleave_ts,traces_def,comptraces_def,EXTENSION] >>
      rw[] >>
-     rewrite_tac[binterleave_trace_emptydeduction_thm]   
+     rewrite_tac[binterleave_trace_deduction_thm]   
   ); 
 
 
 
-val compose_vs_modules_emptydeduction_thm = store_thm(
-  "compose_vs_modules_emptydeduction_thm",
+val compose_vs_modules_deduction_thm = store_thm(
+  "compose_vs_modules_deduction_thm",
   ``!Sym Sym' Sym'' Sym''' P P' P'' P''' S1 S1' S1'' S1''' S2 S2' S2'' S2''' (MTrn1:('event1 + 'eventS, 'pred1, 'state1, 'symb) mtrel) (MTrn1':('event1 + 'eventS, 'pred1, 'state1, 'symb) mtrel) (MTrn2:('event2 + 'eventS, 'pred2, 'state2, 'symb) mtrel) (MTrn2':('event2 + 'eventS, 'pred2, 'state2, 'symb) mtrel) (Ded1:('pred1) tded) (Ded1':('pred1) tded) (Ded2:('pred2) tded) (Ded2':('pred2) tded).
      (((traces (MTrn1,Ded1) (Sym,(IMAGE OUTL P),S1) (Sym',(IMAGE OUTL P'),S1')) ⊆ (traces (MTrn1',Ded1') (Sym'',(IMAGE OUTL P''),S1'') (Sym''',(IMAGE OUTL P'''),S1'''))) ∧ ((traces (MTrn2,Ded2) (Sym,(IMAGE OUTR P),S2) (Sym',(IMAGE OUTR P'),S2')) ⊆ (traces (MTrn2',Ded2') (Sym'',(IMAGE OUTR P''),S2'') (Sym''',(IMAGE OUTR P'''),S2''')))
      ) ==> ((comptraces (MTrn1,Ded1) (MTrn2,Ded2) (Sym,P,S1,S2) (Sym',P',S1',S2')) ⊆ (comptraces (MTrn1',Ded1') (MTrn2',Ded2') (Sym'',P'',S1'',S2'') (Sym''',P''',S1''',S2'''))) ``
   ,
-  rewrite_tac[binterleave_composition_emptydeduction_thm,binterleave_ts] >>
+  rewrite_tac[binterleave_composition_deduction_thm,binterleave_ts] >>
   FULL_SIMP_TAC (list_ss++pred_setSimps.PRED_SET_ss++boolSimps.LIFT_COND_ss++boolSimps.EQUIV_EXTRACT_ss) [SUBSET_DEF] >>
   metis_tac[]
   );  

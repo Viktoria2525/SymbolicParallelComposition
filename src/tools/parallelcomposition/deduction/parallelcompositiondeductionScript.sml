@@ -2,7 +2,7 @@ open HolKernel Parse boolLib bossLib;
 open sumTheory;
 open pred_setTheory;
 
-val _ = new_theory "parallelcompositionemptydeduction";
+val _ = new_theory "parallelcompositiondeduction";
 
     
 (* transition relation *)
