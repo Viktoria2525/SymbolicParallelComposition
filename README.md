@@ -3,7 +3,7 @@
 This repository contains the implementation of our framework. It incorporates a diverse set of features. Here is a brief overview of the repository's contents: 
 
 - **Composition of Symbolic Labeled Transition Systems:**
-	- Developing the composition of symbolic labeled transition systems, incorporating it with several combiners to handle diverse scenarios, and showing the correctness of our symbolic composition. 
+	- Developing the composition of symbolic labeled transition systems, incorporating it with several deduction combiners to handle diverse scenarios, and showing the correctness of our symbolic composition. Refer to <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/deduction">deduction</a> for the composition w.r.t. symbolic labeled transition's deduction relations, and <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/combinededuction">combinededuction</a> for the composition involving several combined deduction relations in addition to symbolic labeled transition's deduction relations.
 
 - **CSP-Style Parallel Composition:**
 	- Enabling the parallel composition of concrete labeled transition systems using a CSP-style approach and proving theories surrounding it.
