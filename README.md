@@ -21,12 +21,12 @@ This repository contains the implementation of our framework. It incorporates a 
 
 - **Framework Instantiation:**
 
-	- Applying the framework to BIR (binary intermediate representation) and Sapic.
+	- Applying the framework to BIR (binary intermediate representation of ARMv8 and RISC-V machine code) and Sapic.
 
 - **Symbolic Execution Tree Translation:**
 
-	- Demonstrating the translation of the symbolic execution tree into the Sapic model and proving this translation is correct.
+	- Demonstrating the translation of the symbolic execution tree of the BIR program into the Sapic model and proving this translation is correct.
 
 - **Verification Examples:**
 
-	- Includes verification examples for ARMv8 binary implementations of TinySSH and WireGuard.
+	- Includes verification examples of ARMv8 machine code of TinySSH and WireGuard.
