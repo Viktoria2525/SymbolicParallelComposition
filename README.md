@@ -6,27 +6,24 @@ This repository contains the implementation of our framework. It incorporates a 
 	- Developing the composition of symbolic labeled transition systems, incorporating it with several deduction combiners to handle diverse scenarios, and showing the correctness of our symbolic composition. Refer to <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/deduction">deduction</a> for the composition w.r.t. symbolic labeled transition's deduction relations, and <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/combinededuction">combinededuction</a> for the composition involving several combined deduction relations in addition to symbolic labeled transition's deduction relations.
 
 - **CSP-Style Parallel Composition:**
-	- Enabling the parallel composition of concrete labeled transition systems using a CSP-style approach and proving theories surrounding it.
-
-- **Dolev-Yao Attacker and Library Models:**
-	- Defining the syntax and semantics for Dolev-Yao attacker and library models in HOL4.
-
-- **Composition and Decomposition of DY Libraries:**
-
-	- Establishing theorems for composing and decomposing Dolev-Yao libraries.
+	- Enabling the parallel composition of concrete labeled transition systems using a CSP-style approach and proving theories surrounding it (see <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/concrete">concrete</a>).
 
 - **Sapic Model:**
 
-	- Defining the syntax and semantics of an applied pi-calculus model named Sapic in HOL4.
+	- Formalizing the syntax and semantics of an applied pi-calculus model, <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/sapic">Sapic</a>, which encompasses both the syntax and semantics of Dolev-Yao attacker and library models.	
+	
+- **Composition and Decomposition of Dolev-Yao Libraries:**
+
+	- Establishing theorems for composing and decomposing Dolev-Yao libraries, located in <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/DYLib">DYLib</a>.
 
 - **Framework Instantiation:**
 
-	- Applying the framework to BIR (binary intermediate representation of ARMv8 and RISC-V machine code) and Sapic.
+	- Applying the framework to <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/theory/bir">BIR</a> (binary intermediate representation of ARMv8 and RISC-V machine code) and Sapic.
 
 - **Symbolic Execution Tree Translation:**
 
-	- Demonstrating the translation of the symbolic execution tree of the BIR program into the Sapic model and proving this translation is correct.
+	- Demonstrating the translation of the symbolic execution tree of the BIR program into the Sapic model and proving this translation is correct, placed in <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/translateTosapic">translateTosapic</a>.
 
 - **Verification Examples:**
 
-	- Includes verification examples of ARMv8 machine code of TinySSH and WireGuard.
+	- Providing verification examples for ARMv8 machine code of TinySSH and WireGuard. The <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/examples">examples</a> include files necessary for extracting the Sapic model of each protocol party, along with the results from executing the Sapic toolchain.
