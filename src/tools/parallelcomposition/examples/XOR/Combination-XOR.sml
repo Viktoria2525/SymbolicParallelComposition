@@ -1,9 +1,6 @@
 open HolKernel Parse
 
-open binariesLib;
-open binariesTheory;
-open binariesCfgLib;
-open binariesMemLib;
+open XORexampleTheory;
 open bir_symbexec_stateLib;
 open bir_symbexec_coreLib;
 open bir_symbexec_stepLib;
@@ -15,7 +12,6 @@ open bir_immSyntax;
 open bir_expSyntax;
 open bir_exec_typingLib;
 open commonBalrobScriptLib;
-open binariesDefsLib;
 open bir_cfgLib;
 open bir_cfg_m0Lib;
 open bir_symbexec_driverLib;
@@ -31,11 +27,19 @@ open messagesTheory;
 open messagesSyntax;
 open tree_to_processLib;
 open  sapic_to_fileLib;
-(*Server*)   (*  
-val lbl_tm = ``BL_Address (Imm64 4203632w)``;
 
-val stop_lbl_tms = [``BL_Address (Imm64 4203760w)``];    
-(*Client*)   *)  
+
+
+val (_, _, _, prog_tm) =
+  (dest_bir_is_lifted_prog o concl)
+      (DB.fetch "XORexample" "XORexample_thm");
+    
+val bl_dict_    = gen_block_dict prog_tm;
+val prog_lbl_tms_ = get_block_dict_keys bl_dict_;
+
+val prog_vars = gen_vars_of_prog prog_tm;
+
+    
 val lbl_tm = ``BL_Address (Imm64 4203632w)``;
 
 val stop_lbl_tms = [``BL_Address (Imm64 4203756w)``]; 

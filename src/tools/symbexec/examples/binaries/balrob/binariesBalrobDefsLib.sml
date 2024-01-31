@@ -77,7 +77,6 @@ struct
      "server",
      "main"
  ];
-*)
 
 (* client_xor *)
  val symbs_sec_text = [
@@ -91,7 +90,7 @@ struct
      "client",
      "main"
  ];
-(*
+
 
 (* RPC_enc_client *)
  val symbs_sec_text = [
@@ -383,7 +382,11 @@ val symbs_sec_text = [
     "read@plt"
 ];
 
-    *)
+ *)
+ val symbs_sec_text = [
+     "main"
+ ];
+
 val arch_str         = "arm8";
 val prog_range       = ((Arbnum.fromInt 0x00000000), (Arbnum.fromInt 0xffffffff));
 
