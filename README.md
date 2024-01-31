@@ -19,6 +19,10 @@ This repository contains the implementation of our framework. It incorporates a 
 - **Framework Instantiation:**
 
 	- Applying the framework to <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/theory/bir">BIR</a> (binary intermediate representation of ARMv8 and RISC-V machine code) and Sapic.
+	
+- **Symbolic Execution:**
+
+	- <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/symbexec/examples/PreProcess">PreProcess</a> comprises source codes responsible for finding addresses of function calls, entry and exit points for loops of the BIR program before symbolic execution. <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/symbexec/examples/libload">libload</a> encompasses the source codes of our symbolic execution, and <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/symbexecbin">symbexecbin</a> includes the binary of the analyzed protocols and files needed to generate their BIR programs. 
 
 - **Symbolic Execution Tree Translation:**
 
@@ -26,4 +30,10 @@ This repository contains the implementation of our framework. It incorporates a 
 
 - **Verification Examples:**
 
-	- Providing verification examples for ARMv8 machine code of TinySSH and WireGuard. The <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/examples">examples</a> include files necessary for extracting the Sapic model of each protocol party, along with the results from executing the Sapic toolchain.
+	- Providing verification examples for ARMv8 machine code of TinySSH and WireGuard. The <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/examples">examples</a> include the results from executing the Sapic toolchain along with necessary files for extracting the Sapic model of each protocol party, such as:
+		- Function names in the protocol implementation
+		- Names of cryptographic functions used in the protocol implementation
+		- Names of functions used for network communications in the protocol implementation (referred to as adversary function names)
+		- Number of entries for cryptographic functions used in the protocol implementation
+		- Number of entries for adversary functions used in the protocol implementation
+		- Names of events released during the execution of the protocol
