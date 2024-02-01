@@ -34,10 +34,15 @@ This repository contains the implementation of our framework. It incorporates a 
 		
 ## How to setup and compile
 
-1. Establish the HolBA framework using the guidelines provided in <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/blob/main/HolBA-README.md">HolBA-README.md</a>.
+
+1. Establish the HolBA framework using the guidelines provided in <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/blob/main/HolBA-README.md">HolBA-README.md</a>
+
 2. To validate our claims, navigate to each directory mentioned above and execute the `Holmake` command. You should observe that each theory file is generated smoothly without any errors or cheats.
+
 3. **(optional step)** Generate BIR programs for the analyzed protocol binaries by executing `Holmake` in the <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/symbexecbin">symbexecbin</a> directory (the BIR programs are stored in ***\*Theory.sig*** files in this directory), or they will be created automatically the first time you run an example.
+
 4. Execute the `make src/tools/parallelcomposition/examples/subdirectory/your-chosen-example.sml_run` command for your chosen example. The extracted model will be stored in the ***Sapic_Translation.txt*** file in the corresponding example subdirectory. Make sure to specify the cryptographic primitives's assumptions and security properties in the extracted model before verifying it with the Sapic toolchain. For detailed guidance on this process and to view the results we obtained from the Sapic toolchain backends, refer to <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/examples/Sapic-Results">Sapic-Results</a>.
+
 
 ## Running example
 
