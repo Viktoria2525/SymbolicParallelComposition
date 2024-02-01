@@ -35,7 +35,7 @@ This repository contains the implementation of our framework. It incorporates a 
 ## How to setup and compile
 
 
-1. Establish the HolBA framework using the guidelines provided in <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/blob/main/HolBA-README.md">HolBA-README.md</a>
+1. Establish the HolBA framework using the guidelines provided in <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/blob/main/HolBA-README.md">HolBA-README.md</a>.
 
 2. To validate our claims, navigate to each directory mentioned above and execute the `Holmake` command. You should observe that each theory file is generated smoothly without any errors or cheats.
 
