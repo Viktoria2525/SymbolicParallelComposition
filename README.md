@@ -14,8 +14,8 @@ This repository contains the implementation of our framework. It incorporates a 
 	
 - **Composition and Decomposition of Dolev-Yao Libraries:**
 
-	- Establishing theorems for composing and decomposing Dolev-Yao libraries, located in <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/DYLib">DYLib</a>. No need to clone HolBA separately; we have provided a version compatible with our framework in our repository.
-
+	- Establishing theorems for composing and decomposing Dolev-Yao libraries, located in <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/DYLib">DYLib</a>. 
+	
 - **Framework Instantiation:**
 
 	- Applying the framework to <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/theory/bir">BIR</a> (binary intermediate representation of ARMv8 and RISC-V machine code) and Sapic.
@@ -35,7 +35,7 @@ This repository contains the implementation of our framework. It incorporates a 
 ## How to setup and compile
 
 
-1. Establish the HolBA framework using the guidelines provided in <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/blob/main/HolBA-README.md">HolBA-README.md</a>.
+1. Establish the HolBA framework using the guidelines provided in <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/blob/main/HolBA-README.md">HolBA-README.md</a>. No need to clone HolBA separately; we have provided a version compatible with our framework in our repository.
 
 2. To validate our claims, navigate to each directory mentioned above and execute the `Holmake` command. You should observe that each theory file is generated smoothly without any errors or cheats.
 
