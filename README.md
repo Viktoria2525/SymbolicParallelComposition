@@ -14,7 +14,7 @@ This repository contains the implementation of our framework. It incorporates a 
 	
 - **Composition and Decomposition of Dolev-Yao Libraries:**
 
-	- Establishing theorems for composing and decomposing Dolev-Yao libraries, located in <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/DYLib">DYLib</a>.
+	- Establishing theorems for composing and decomposing Dolev-Yao libraries, located in <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/src/tools/parallelcomposition/DYLib">DYLib</a>. No need to clone HolBA separately; we have provided a version compatible with our framework in our repository.
 
 - **Framework Instantiation:**
 
