@@ -91,6 +91,11 @@ out(70_XOR)
 ```
 
 
+## Parallels virtual machine
+
+Additionally, we have configured a <a href="">Parallels virtual machine</a> with preinstalled dependencies to facilitate the exploration of our framework. The virtual machine's password is ***symbparlcomp***, and our framework is located in the **/home/SymbolicParallelComposition** directory.
+
+
 ### References
 
 <a id="1">[1]</a> 
