@@ -117,7 +117,7 @@ Notice that this sequence is just an example, and it is possible to selectively 
       ├─ wp: Weakest precondition propagation
       ├─ symbexec: Symbolic Execution for Binary Code Verification
       ├─ symbexecbin: BIR program generation files
-      └─ parallelcomposition: <span style="background-color: #FFFF00">Symbolic Parallel Composition for Verification of Multi-language Protocol Implementations</span>
+      └─ parallelcomposition: <mark style="background-color: lightblue">Symbolic Parallel Composition for Verification of Multi-language Implementations</mark>
 </code></pre>
 
 ### Tools status:
