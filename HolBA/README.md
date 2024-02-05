@@ -89,7 +89,7 @@ Notice that this sequence is just an example, and it is possible to selectively 
 
 ## Folders and organization
 
-```
+<pre><code>
 ├─ doc: Documentation material
 ├─ examples: Showcasing HolBA
 │  ├─ aes: lifting + WP of AES on ARMv8 and for Cortex-M0
@@ -114,8 +114,11 @@ Notice that this sequence is just an example, and it is possible to selectively 
       ├─ lifter: Transpiler from binary to BIR
       ├─ pass: Passification utility
       ├─ scamv: Abstract side channel model validation framework
-      └─ wp: Weakest precondition propagation
-```
+      ├─ wp: Weakest precondition propagation
+      ├─ symbexec: Symbolic Execution for Binary Code Verification
+      ├─ symbexecbin: BIR program generation files
+      └─ parallelcomposition: <span style="background-color: #FFFF00">Symbolic Parallel Composition for Verification of Multi-language Protocol Implementations</span>
+</code></pre>
 
 ### Tools status:
 
