@@ -46,19 +46,26 @@ Define`
       (DYtranrel (Sym,Pi,ESt) (SOME (INL (Alias (X',Y')))) (Sym',Pi',ESt) = ((X' ∉ Sym) ∧ (Sym' = Sym∪{X'}) ∧ (Pi' = Pi∪{Equ((TVar X'),Y')}))) ∧
       (DYtranrel (Sym,Pi,ESt) (SOME (INR (A2P X))) (Sym',Pi',ESt) = ((K (TVar X) ∈ Pi) ∧ (Pi = Pi') ∧ (Sym = Sym'))) ∧
       (DYtranrel (Sym,Pi,ESt) (SOME (INL (Silent n))) (Sym',Pi',ESt) = ((Fr (Con n) ∉ Pi ) ∧ (Pi' = Pi∪{(Fr (Con n));(K (Con n))}) ∧ (Sym = Sym'))) ∧
-      (DYtranrel (Sym,Pi,ESt) (SOME (INR (Sync_Fr n'))) (Sym',Pi',ESt) = ((Fr (Con n') ∉ Pi ) ∧ (Pi' = Pi∪{Fr (Con n')}) ∧ (Sym = Sym')))
+      (DYtranrel (Sym,Pi,ESt) (SOME (INR (Sync_Fr n'))) (Sym',Pi',ESt) = ((Fr (Con n') ∉ Pi ) ∧ (Pi' = Pi∪{Fr (Con n')}) ∧ (Sym = Sym'))) ∧
+      (DYtranrel (Sym,Pi,ESt) (NONE) (Sym',Pi',ESt) = ((Pi = Pi') ∧ (Sym = Sym')))
 `;                                      
 
 
 (* Dolev-Yao multi transition relation *)
-val DYmultranrel_def =
-Define`DYmultranrel C Eve C' =
-(case Eve of
-   [] => (C = C')
- | (e::ev) => (∃C''. (DYmultranrel C ev C'') ∧ (DYtranrel C'' e C'))
-)
-`;
-                                        
+Inductive DYmultranrel:
+[~nil:]
+  (DYmultranrel ((Sym:(Var_t -> bool)),(P:(DYpred -> bool)),ESt) ([]:(DYnsyc_event + (Name_t,Var_t) sync_event) option list) ((Sym:(Var_t -> bool)),(P:(DYpred -> bool)),ESt)) /\
+[~move:]
+  (
+  ((DYmultranrel ((Sym:(Var_t -> bool)),(P:(DYpred -> bool)),ESt) (ev:(DYnsyc_event + (Name_t,Var_t) sync_event) option list) ((Sym'':(Var_t -> bool)),(P'':(DYpred -> bool)),ESt)) /\
+   (DYtranrel ((Sym'':(Var_t -> bool)),(P'':(DYpred -> bool)),ESt) (e:(DYnsyc_event + (Name_t,Var_t) sync_event) option) ((Sym':(Var_t -> bool)),(P':(DYpred -> bool)),ESt))) ==>
+  ((DYmultranrel ((Sym:(Var_t -> bool)),(P:(DYpred -> bool)),ESt) ((e::ev):(DYnsyc_event + (Name_t,Var_t) sync_event) option list) ((Sym':(Var_t -> bool)),(P':(DYpred -> bool)),ESt)))
+  )
+End
 
-
+val DYmultranrel_single = new_axiom ("DYmultranrel_single",
+                                     ``∀e Sym Sym' P P'.
+                                              (DYmultranrel ((Sym:(Var_t -> bool)),(P:(DYpred -> bool)),ESt) ([e]:(DYnsyc_event + (Name_t,Var_t) sync_event) option list) ((Sym':(Var_t -> bool)),(P':(DYpred -> bool)),ESt)) =
+  (DYtranrel ((Sym:(Var_t -> bool)),(P:(DYpred -> bool)),ESt) (e:(DYnsyc_event + (Name_t,Var_t) sync_event) option) ((Sym':(Var_t -> bool)),(P':(DYpred -> bool)),ESt)) ``);
+                                                 
 val _ = export_theory();
