@@ -1,16 +1,15 @@
 # includes
 # ----------------------------------
 DEPENDENCIES   = 
-#../../../core ../../../theories
+#../../../core ../../../theories ../generaldeduction
 
 
 # configuration
 # ----------------------------------
-HOLHEAP        = ../generaldeduction/HolBATools_GeneralDeduction-heap
-NEWHOLHEAP     = HolBATools_DYLib-heap
+HOLHEAP        = ../concrete/HolBATools_Concrete-heap
+NEWHOLHEAP     = HolBATools_Instant-heap
 
 HEAPINC_EXTRA  = 
-
 
 
 # included lines follow

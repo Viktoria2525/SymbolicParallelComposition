@@ -191,6 +191,16 @@ val sapic_renaming_update_def = Define `
     sapic_renaming_update (Renaming S) (symb, vo) = Renaming ((symb =+ vo) S)
                                                              `;
 
+val sapic_renaming_extend_def = Define `
+    sapic_renaming_extend H_extra H_base =
+    (Renaming (\symb.
+      if symb IN (sapic_renaming_dom H_base) then
+        sapic_renaming_get H_base symb
+      else
+        sapic_renaming_get H_extra symb))
+    `;
+
+        
 (* Renaming Names *)
     
 val _ = Datatype `sapic_name_renaming_t =
@@ -208,7 +218,16 @@ val sapic_name_renaming_update_def = Define `
     sapic_name_renaming_update (NameRenaming S) (symb, vo) = NameRenaming ((symb =+ vo) S)
                                                                           `;
 
-                                                                                
+val sapic_name_renaming_extend_def = Define `
+    sapic_name_renaming_extend H_extra H_base =
+    (NameRenaming (\symb.
+      if symb IN (sapic_name_renaming_dom H_base) then
+        sapic_name_renaming_get H_base symb
+      else
+        sapic_name_renaming_get H_extra symb))
+    `;
+
+        
 (* State *)  
 val _ = Datatype `sapic_state_t =
    State (SapicTerm_t -> (SapicTerm_t option))
@@ -749,9 +768,13 @@ val sapic_position_with_symb_single = new_axiom ("sapic_position_with_symb_singl
                             ``∀e Sym Sym' P P' Pro Pro' NRe NRe' Re Re' i i'. (sapic_position_multi_transitions_with_symb ((Sym:(Var_t -> bool)),(P:('SPpred -> bool)),(Pconfig (Pro,i,Re,NRe))) [e] ((Sym':(Var_t -> bool)),(P':('SPpred -> bool)),(Pconfig (Pro',i',Re',NRe')))) = (sapic_position_transition_with_symb ((Sym:(Var_t -> bool)),(P:('SPpred -> bool)),(Pconfig (Pro,i,Re,NRe))) e ((Sym':(Var_t -> bool)),(P':('SPpred -> bool)),(Pconfig (Pro',i',Re',NRe')))) ``);                
 
         
+val traces_of_sapic_with_symb_def  = Define`
+traces_of_sapic_with_symb ((Sym:(Var_t -> bool)),(P:('SPpred -> bool)),(Pconfig (Pro,i,Re,NRe))) ((Sym':(Var_t -> bool)),(P':('SPpred -> bool)),(Pconfig (Pro',i',Re',NRe'))) = {e| (sapic_position_multi_transitions_with_symb ((Sym:(Var_t -> bool)),(P:('SPpred -> bool)),(Pconfig (Pro,i,Re,NRe))) e ((Sym':(Var_t -> bool)),(P':('SPpred -> bool)),(Pconfig (Pro',i',Re',NRe'))))}`;
+
 val traces_of_sapic_def  = Define`
 traces_of_sapic (Pconfig (Pro,i,Re,NRe)) = {e| ∃Pro' i' Re' NRe'. (sapic_position_multi_transitions (Pconfig (Pro,i,Re,NRe)) e (Pconfig (Pro',i',Re',NRe')))}`;
         
+                                                                                                                                                                
 
 
 val _ = Datatype `sapic_plus_position_configuration_t =
