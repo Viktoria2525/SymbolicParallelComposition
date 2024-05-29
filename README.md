@@ -18,7 +18,7 @@ This repository contains the implementation of our framework. It incorporates a 
 	
 - **Framework Instantiation:**
 
-	- Applying the framework to <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/HolBA/src/theory/bir">BIR</a> (binary intermediate representation of ARMv8 and RISC-V machine code) and Sapic.
+	- Applying the framework to <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/HolBA/src/theory/bir">BIR</a> (binary intermediate representation of ARMv8 and RISC-V machine code) and Sapic. In the <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/HolBA/src/tools/parallelcomposition/instantiations">instantiations</a> folder, we demonstrate how the paper’s theorems combine to achieve an end-to-end correctness result. We have assigned specific files with descriptive names to their mechanized proofs in HOL4 for each trace equivalence and trace inclusion step we have proven.
 	
 - **Symbolic Execution:**
 
