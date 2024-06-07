@@ -9,7 +9,7 @@ This repository contains the implementation of our framework. It incorporates a 
 	- Enabling the parallel composition of concrete labeled transition systems using a CSP-style approach and proving theories surrounding it (see <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/HolBA/src/tools/parallelcomposition/concrete">concrete</a>).
 
 - **Refinement:**
-	- Linking the analysis of symbolic system semantics to concrete system semantics by using an additional theorem (<a href="https://github.com/Viktoria2525/SymbolicParallelComposition/blob/main/HolBA/src/tools/parallelcomposition/refinement/refinementScript.sml#L66">refinement</a>).
+	- Linking the analysis of symbolic system semantics to concrete system semantics using an additional theorem, set in <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/blob/main/HolBA/src/tools/parallelcomposition/refinement">refinement</a>.
    
 - **Sapic Model:**
 
