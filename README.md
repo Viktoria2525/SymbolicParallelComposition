@@ -8,6 +8,9 @@ This repository contains the implementation of our framework. It incorporates a 
 - **CSP-Style Parallel Composition:**
 	- Enabling the parallel composition of concrete labeled transition systems using a CSP-style approach and proving theories surrounding it (see <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/HolBA/src/tools/parallelcomposition/concrete">concrete</a>).
 
+- **Refinement:**
+	- Linking the analysis of symbolic system semantics to concrete system semantics by using an additional theorem (see <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/blob/main/HolBA/src/tools/parallelcomposition/refinement/refinementScript.sml">refinement</a>).
+   
 - **Sapic Model:**
 
 	- Formalizing the syntax and semantics of an applied pi-calculus model, <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/HolBA/src/tools/parallelcomposition/sapic">Sapic</a>, which encompasses both the syntax and semantics of Dolev-Yao attacker and library models.	
