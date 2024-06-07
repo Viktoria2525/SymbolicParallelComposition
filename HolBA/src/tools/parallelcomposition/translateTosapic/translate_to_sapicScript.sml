@@ -136,6 +136,7 @@ sbirEvent_to_sapicFact e =
         )
   `;
 
+  
 val symbtree_to_sapic_def = Define`
 (symbtree_to_sapic (SLeaf) = ProcessNull) /\
 (symbtree_to_sapic (SNode (Silent,i,H) st) = (symbtree_to_sapic st)) /\
