@@ -46,9 +46,9 @@ This repository contains the implementation of our framework. It incorporates a 
 
 ## Running example
 
-The running example is ready for the execution and showcase our core functionality with predefined inputs, files, and expected outputs. We will now explain this example to serve as a guide for users who wish to establish their own examples based on the provided foundation. For this purpose, we contemplate the client-side implementation of a simple XOR as outlined in [1].
+The running example is ready for the execution and showcase our core functionality with predefined inputs, files, and expected outputs. We will now explain this example to serve as a guide for users who wish to establish their own examples based on the provided foundation. For this purpose, we contemplate the implementation of Example 4 as outlined in our paper.
 
-1. Begin by placing the binary implementation files ( ***xor.da***, ***xor.da.plus***, and ***xor.mem***) for the client side of simple XOR in the <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/HolBA/src/tools/symbexecbin">symbexecbin</a> directory.
+1. Begin by placing the binary implementation file (***xor.da***) for the Example 4 in the <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/HolBA/src/tools/symbexecbin">symbexecbin</a> directory.
 
 2. Configure the binary files and code fragments you want to transpile to BIR as inputs in the <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/blob/main/HolBA/src/tools/symbexecbin/XORexampleScript.sml">script file</a> dedicated to the simple XOR example. If you want to lift the entire binary file to a BIR program, skip specifying code fragments and use `read_disassembly_file_regions` function instead of `read_disassembly_file_regions_filter` function.
 In our running example, we provided the binary file and code fragments as follows:
@@ -56,47 +56,28 @@ In our running example, we provided the binary file and code fragments as follow
 ```
 val dafilename = "xor.da";
 val symbs_sec_text = [
-    "__libc_malloc",
-    "memcpy",
-    "otp",
-    "xor",
-    "socket_connect",
-    "send",
-    "RAND_bytes",
-    "client",
-    "main/HolBA"
-];
+     "new_key",
+     "senc",
+     "send",
+     "main"
+  ];
 ```
 
 3. Specify the entry and exit addresses of the program-under-verification in the <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/HolBA/src/tools/parallelcomposition/examples/XOR/Combination-XOR.sml">Combination-XOR</a> file, as outlined below:
 
 ```
-val lbl_tm = ``BL_Address (Imm64 4203632w)``;
+val lbl_tm = ``BL_Address (Imm64 60w)``;
 
-val stop_lbl_tms = [``BL_Address (Imm64 4203756w)``];
+val stop_lbl_tms = [``BL_Address (Imm64 132w)``]; 
 ```
 
 4. And then, run the following command:
 
 	- `make src/tools/parallelcomposition/examples/XOR/Combination-XOR.sml_run`
 
-5. Subsequently, you can locate the extracted Sapic model in the ***Sapic_Translation.txt*** file within the <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/HolBA/src/tools/parallelcomposition/examples/XOR">XOR</a> directory, as demonstrated below:
-
-```
-new ~49_otp;
-let 48_OTP=~49_otp in 
-let 66_Conc1=conc1(48_OTP) in 
-let 70_XOR=exclusive_or(66_Conc1,pad) in 
-out(70_XOR)
-```
-
+5. Subsequently, you can locate the extracted Sapic model in the ***Sapic_Translation.txt*** file within the <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/HolBA/src/tools/parallelcomposition/examples/XOR">XOR</a> directory.
 
 ## Parallels virtual machine
 
 Additionally, we have configured a <a href="https://drive.google.com/file/d/1HzG2JVK2Dy0fHIgIx3v89D5oBU3Ncqke/view?usp=sharing">Parallels virtual machine</a> with preinstalled dependencies to facilitate the exploration of our framework. The virtual machine's password is ***symbparlcomp***, and our framework is located in the **/home/SymbolicParallelComposition** directory.
 
-
-### References
-
-<a id="1">[1]</a> 
-Aizatulin, Mihhail, Andrew D. Gordon, and Jan Jürjens. "Computational verification of C protocol implementations by symbolic execution." Proceedings of the 2012 ACM conference on Computer and communications security. 2012.
