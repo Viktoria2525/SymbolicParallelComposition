@@ -8,6 +8,9 @@ This repository contains the implementation of our framework. It incorporates a 
 - **CSP-Style Parallel Composition:**
 	- Enabling the parallel composition of concrete labeled transition systems using a CSP-style approach and proving theories surrounding it (see <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/HolBA/src/tools/parallelcomposition/concrete">concrete</a>).
 
+- **Refinement:**
+	- Linking the analysis of symbolic system semantics to concrete system semantics using an additional theorem, set in <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/blob/main/HolBA/src/tools/parallelcomposition/refinement">refinement</a>.
+   
 - **Sapic Model:**
 
 	- Formalizing the syntax and semantics of an applied pi-calculus model, <a href="https://github.com/Viktoria2525/SymbolicParallelComposition/tree/main/HolBA/src/tools/parallelcomposition/sapic">Sapic</a>, which encompasses both the syntax and semantics of Dolev-Yao attacker and library models.	
@@ -79,5 +82,5 @@ val stop_lbl_tms = [``BL_Address (Imm64 132w)``];
 
 ## Parallels virtual machine
 
-Additionally, we have configured a <a href="https://drive.google.com/file/d/1HzG2JVK2Dy0fHIgIx3v89D5oBU3Ncqke/view?usp=sharing">Parallels virtual machine</a> with preinstalled dependencies to facilitate the exploration of our framework. The virtual machine's password is ***symbparlcomp***, and our framework is located in the **/home/SymbolicParallelComposition** directory.
+Additionally, we have configured a <a href="https://drive.google.com/file/d/1pfIMxeycFnpM4OOR26Eyu08p5VcJwVrt/view?usp=sharing">Parallels virtual machine</a> with preinstalled dependencies to facilitate the exploration of our framework. The virtual machine's password is ***symbparlcomp***, and our framework is located in the **/home/SymbolicParallelComposition** directory.
 
